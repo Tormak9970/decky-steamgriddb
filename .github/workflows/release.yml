@@ -25,11 +25,12 @@ jobs:
         with:
           node-version: 16
 
-      - name: Conventional Changelog Action
+      - name: Generate Changelog for Release
         id: changelog
-        uses: ./.github/workflows/custom-changelog
+        uses: Tormak9970/reliable-changelog@v1
         with:
           github-token: ${{ secrets.github_token }}
+          patch-version-bump-interval: "10"
 
       - name: Create Release
         id: create-release
